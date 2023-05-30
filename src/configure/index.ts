@@ -6,4 +6,5 @@ dotenv.config({ path: path.join(process.cwd(), '.env') })
 export default {
   PORT: process.env.PORT,
   SERVER_URL: process.env.SERVER_URL,
+  D_USER_PASSWORD: process.env.D_USER_PASSWORD,
 }
