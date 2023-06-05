@@ -1,0 +1,75 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "D:\\PH_N_2\\UMS-2\\logs\\winston\\success\\.29ee3c2331cd9328b92793b7d54744922de0e1bb-audit.json",
+    "files": [
+        {
+            "date": 1685686335747,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\success\\UMS2-success-2023-06-02-12.log",
+            "hash": "d69d8c88705a5863e3799e4e24a5b02f9b98c97b1c2e73cc3440a472e4c020e4"
+        },
+        {
+            "date": 1685694318291,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\success\\UMS2-success-2023-06-02-14.log",
+            "hash": "20107a7add1966652898a4ce4696f7f33923b062537972519619fdc4333d6302"
+        },
+        {
+            "date": 1685706601578,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\success\\UMS2-success-2023-06-02-17.log",
+            "hash": "831bd9d22fa77358a2274075956170d8be9b896f31db468b26b1461a2cea2487"
+        },
+        {
+            "date": 1685707859313,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\success\\UMS2-success-2023-06-02-18.log",
+            "hash": "80516622d7d88efd55636996696a6004bb010aad92959989df2b34c05ce68a36"
+        },
+        {
+            "date": 1685720279401,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\success\\UMS2-success-2023-06-02-21.log",
+            "hash": "6868f1e4fcdf56265a885610808949bc757f03e6ffdf8c3eaec74a3529f9e838"
+        },
+        {
+            "date": 1685741390652,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\success\\UMS2-success-2023-06-03-03.log",
+            "hash": "cd2df5c98b5729d5fcc98ec532314cc8fed64a6785f768b23e4582fcbcc55782"
+        },
+        {
+            "date": 1685758641883,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\success\\UMS2-success-2023-06-03-08.log",
+            "hash": "972676dab826a7819728a82879a70edbfe799c2aa4fad7e304a9bdd7ebeacfcf"
+        },
+        {
+            "date": 1685769681382,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\success\\UMS2-success-2023-06-03-11.log",
+            "hash": "66347c5527f1cac84a45591186763ddedafe44a76a5029810257b4e546840071"
+        },
+        {
+            "date": 1685811903798,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\success\\UMS2-success-2023-06-03-23.log",
+            "hash": "0a0a71890240cade513f330537fc2c2fcb3714dffbb3e09004c507f9bf4068f2"
+        },
+        {
+            "date": 1685842523152,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\success\\UMS2-success-2023-06-04-07.log",
+            "hash": "2568cf4c118958cd08b1e5f07ea34d52c806e83f371982ef54ad913564004b10"
+        },
+        {
+            "date": 1685844119498,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\success\\UMS2-success-2023-06-04-08.log",
+            "hash": "94fa27786a913d24dfb380b01ccf675330b95d7617bf2dac311b47ed7e838b25"
+        },
+        {
+            "date": 1685891895051,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\success\\UMS2-success-2023-06-04-21.log",
+            "hash": "80312e86dda07482d9edc6716a1aac299ed40b3569dcde8fbe33522df08f5d59"
+        },
+        {
+            "date": 1685930617535,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\success\\UMS2-success-2023-06-05-08.log",
+            "hash": "96816c07e7a269ba0c69a487779978569be820ea83349193047297f4b78f8d71"
+        }
+    ],
+    "hashType": "sha256"
+}

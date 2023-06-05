@@ -1,0 +1,57 @@
+import { ErrorRequestHandler } from 'express'
+import configure from '../../configure'
+import { IGenericHandlerMessage } from '../../interfaces/error'
+import handelValiditionError from '../../Errors/handelValiditionError'
+
+import ApiError from '../../Errors/ApiErrors'
+import { errorLogger } from '../../shared/logger'
+
+const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
+  // eslint-disable-next-line no-unused-expressions
+  configure.env === 'development'
+    ? // eslint-disable-next-line no-console
+      console.log('GlobalErrorHandler ~', error)
+    : errorLogger.error('GlobalErrorHandler ~', error)
+
+  let statusCode = 500
+  let message = 'Something went wrong'
+  let errorMessage: IGenericHandlerMessage[] = []
+
+  if (error?.name === 'ValidationError') {
+    const simplifiedError = handelValiditionError(error)
+    statusCode = simplifiedError.statusCode
+    message = simplifiedError.message
+    errorMessage = simplifiedError.errorMessage
+  } else if (error instanceof ApiError) {
+    statusCode = error?.statusCode
+    message = error?.message
+    errorMessage = error?.message
+      ? [
+          {
+            path: '',
+            message: error?.message,
+          },
+        ]
+      : []
+  } else if (error instanceof Error) {
+    message = error?.message
+    errorMessage = error?.message
+      ? [
+          {
+            path: '',
+            message: error?.message,
+          },
+        ]
+      : []
+  }
+
+  res.status(statusCode).json({
+    success: false,
+    message,
+    errorMessage,
+    stack: configure.env !== 'production' ? error?.stack : undefined,
+  })
+  next()
+}
+
+export default globalErrorHandler
