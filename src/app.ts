@@ -1,7 +1,9 @@
-import express, { Application, Request, Response } from 'express'
+import express, { Application, NextFunction, Request, Response } from 'express'
 const app: Application = express()
 import cors from 'cors'
-import router from './app/Modules/users/user.route'
+import { UserRoutes } from './app/Modules/users/user.route'
+import globalErrorHandler from './app/middlewares/globalErrorHandler'
+import ApiError from './Errors/ApiErrors'
 // Cors
 app.use(cors())
 
@@ -10,10 +12,17 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 // Application ROutes
-app.use('/api/v1/users/', router)
+app.use('/api/v1/users/', UserRoutes)
 
-app.get('/', async (req: Request, res: Response) => {
-  res.send('Server is runing')
+// testing
+app.get('/', async (req: Request, res: Response, next: NextFunction) => {
+  // res.send('Server is runing')
+  // throw new ApiError(400, 'Pre baba error')
+  Promise.reject(new Error('Uhaled Promise Rejection'))
+  // next('Ore Baba Error Next')
 })
+
+// Global testing
+app.use(globalErrorHandler)
 
 export default app
