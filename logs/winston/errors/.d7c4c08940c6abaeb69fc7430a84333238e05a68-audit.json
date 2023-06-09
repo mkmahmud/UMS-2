@@ -69,6 +69,71 @@
             "date": 1685930617538,
             "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\errors\\UMS2-error-2023-06-05-08.log",
             "hash": "b67fed13b2b375e4b5e434cef1fbe8a28e54c2f30f02fd30e95700dd56a5fb3d"
+        },
+        {
+            "date": 1685934089512,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\errors\\UMS2-error-2023-06-05-09.log",
+            "hash": "cdf38b086744946b787ffb5617de4c8b83f3a446acb52a29741594e1b820c677"
+        },
+        {
+            "date": 1685937647875,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\errors\\UMS2-error-2023-06-05-10.log",
+            "hash": "de064eafaefb3499694120835daa01ff595fb4d4b323c8f3e9473e71ed2f561e"
+        },
+        {
+            "date": 1686014512902,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\errors\\UMS2-error-2023-06-06-07.log",
+            "hash": "e31870f95c7b1a14c4d962073d22eeb7dfffb50b407e238c221cc1b9d0476029"
+        },
+        {
+            "date": 1686016879549,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\errors\\UMS2-error-2023-06-06-08.log",
+            "hash": "e6e87994a857b6fce6b13406c0626f20bf60286b452d0b7f689c1464635f339d"
+        },
+        {
+            "date": 1686029016150,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\errors\\UMS2-error-2023-06-06-11.log",
+            "hash": "df4571ee20907273a6238267dca15a73937a1b394ad20de759b2a78ccbb692ef"
+        },
+        {
+            "date": 1686050856162,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\errors\\UMS2-error-2023-06-06-17.log",
+            "hash": "fe5bfdc8c8bbc86151bd870154325f22c6f9d8c49c1cef290c1ada9508e850a8"
+        },
+        {
+            "date": 1686066020195,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\errors\\UMS2-error-2023-06-06-21.log",
+            "hash": "fbdccd27c72ced8767faab0a46512467d965fd70156264c5bddab693d72367ff"
+        },
+        {
+            "date": 1686067208046,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\errors\\UMS2-error-2023-06-06-22.log",
+            "hash": "15fa29c88ba90c9c6c7f8272042745d6dddbb77cd4a9c5a81e7f4c6768dfb8b3"
+        },
+        {
+            "date": 1686140346988,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\errors\\UMS2-error-2023-06-07-18.log",
+            "hash": "318dfc8d6bb71ed331eadd879abf32c6bf51f1932c150d9dd46ba7e0982a3e36"
+        },
+        {
+            "date": 1686155976888,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\errors\\UMS2-error-2023-06-07-22.log",
+            "hash": "a033a5d784d9c5fb189d005bfac92f9204c90792ff882b0b96ec0a76128e29ab"
+        },
+        {
+            "date": 1686240122347,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\errors\\UMS2-error-2023-06-08-22.log",
+            "hash": "94092b8465bfe08ff35b567db94d3e4e7eea47d590c15ebeea8defe6d9621b34"
+        },
+        {
+            "date": 1686279580453,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\errors\\UMS2-error-2023-06-09-08.log",
+            "hash": "75325fab9edadbb6e8405772b4fd077a3346b879b40dbf895432a8f739d762db"
+        },
+        {
+            "date": 1686279708094,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\errors\\UMS2-error-2023-06-09-09.log",
+            "hash": "404dd4fd235e86971001bf4873780d06bb6aa5df0748b80a64d12ea724b05e1f"
         }
     ],
     "hashType": "sha256"

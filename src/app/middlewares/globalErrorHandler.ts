@@ -2,9 +2,10 @@ import { ErrorRequestHandler } from 'express'
 import configure from '../../configure'
 import { IGenericHandlerMessage } from '../../interfaces/error'
 import handelValiditionError from '../../Errors/handelValiditionError'
-
+import { ZodError } from 'zod'
 import ApiError from '../../Errors/ApiErrors'
 import { errorLogger } from '../../shared/logger'
+import handelZodError from '../../Errors/handelZodError'
 
 const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
   // eslint-disable-next-line no-unused-expressions
@@ -19,6 +20,11 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
 
   if (error?.name === 'ValidationError') {
     const simplifiedError = handelValiditionError(error)
+    statusCode = simplifiedError.statusCode
+    message = simplifiedError.message
+    errorMessage = simplifiedError.errorMessage
+  } else if (error instanceof ZodError) {
+    const simplifiedError = handelZodError(error)
     statusCode = simplifiedError.statusCode
     message = simplifiedError.message
     errorMessage = simplifiedError.errorMessage
