@@ -6,8 +6,9 @@ import { ZodError } from 'zod'
 import ApiError from '../../Errors/ApiErrors'
 import { errorLogger } from '../../shared/logger'
 import handelZodError from '../../Errors/handelZodError'
+import handelCasrError from '../../Errors/handelCasrError'
 
-const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
+const globalErrorHandler: ErrorRequestHandler = (error, req, res) => {
   // eslint-disable-next-line no-unused-expressions
   configure.env === 'development'
     ? // eslint-disable-next-line no-console
@@ -28,6 +29,12 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
     statusCode = simplifiedError.statusCode
     message = simplifiedError.message
     errorMessage = simplifiedError.errorMessage
+  } else if (error?.name === 'CastError') {
+    const simplifiedError = handelCasrError(error)
+    statusCode = simplifiedError.statusCode
+    message = simplifiedError.message
+    errorMessage = simplifiedError.errorMessage
+    // res.status(200).json({ error })
   } else if (error instanceof ApiError) {
     statusCode = error?.statusCode
     message = error?.message
@@ -57,7 +64,6 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
     errorMessage,
     stack: configure.env !== 'production' ? error?.stack : undefined,
   })
-  next()
 }
 
 export default globalErrorHandler

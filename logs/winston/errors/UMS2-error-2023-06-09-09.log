@@ -1,0 +1,2 @@
+Fri Jun 09 2023/9-35-6 : [UMS2] error: querySrv ETIMEOUT _mongodb._tcp.cluster0.cjesyyc.mongodb.net
+Fri Jun 09 2023/9-54-56 : [UMS2] error: connect ETIMEDOUT 54.184.29.216:27017
