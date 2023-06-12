@@ -1,6 +1,7 @@
 import express, { Application, NextFunction, Request, Response } from 'express'
 const app: Application = express()
 import cors from 'cors'
+import { StatusCodes } from 'http-status-codes'
 
 import globalErrorHandler from './app/middlewares/globalErrorHandler'
 import routes from './app/routes'
@@ -32,7 +33,7 @@ app.use(globalErrorHandler)
 
 // Handek not found
 app.use((req: Request, res: Response, next: NextFunction) => {
-  res.status(404).json({
+  res.status(StatusCodes.NOT_FOUND).json({
     success: false,
     message: 'Not Found',
 

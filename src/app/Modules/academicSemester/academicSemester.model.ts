@@ -18,7 +18,7 @@ const academicSemesterSchema = new Schema<IAcademicSemester>(
       enum: AcademicSemesterTitle,
     },
     year: {
-      type: Number,
+      type: String,
       required: true,
     },
     code: {
@@ -52,8 +52,6 @@ academicSemesterSchema.pre('save', async function (next) {
     const error = new Error('Semester already exists')
     return next(error)
   }
-
-  next()
 })
 
 export const AcademicSemester = model<IAcademicSemester, AcademicSemesterModel>(

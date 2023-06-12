@@ -32,3 +32,7 @@ export const AcademicSemesterTitleCodeMapper: { [key: string]: string } = {
   Summar: '02',
   Fall: '03',
 }
+
+export const searchFileds = ['title', 'code', 'year']
+
+export const filterAbleFilds = ['searchTerm', 'title', 'code', 'year']
