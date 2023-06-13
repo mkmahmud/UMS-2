@@ -189,6 +189,21 @@
             "date": 1686528064455,
             "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\success\\UMS2-success-2023-06-12-06.log",
             "hash": "57834413f3ce8556b4c25d032263c06fcb9dc0a52b1d2ed46f86c77b3d7025b3"
+        },
+        {
+            "date": 1686603403068,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\success\\UMS2-success-2023-06-13-02.log",
+            "hash": "b857a95e2bc3f2af73ae20864c258c9d12e26e90668865d009b91c11f3cd4b45"
+        },
+        {
+            "date": 1686603704422,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\success\\UMS2-success-2023-06-13-03.log",
+            "hash": "d04d6a58a90a7fe7cb1e5a2a132fceb8a65c3562ff075505f444a0c1d3dba1e1"
+        },
+        {
+            "date": 1686623050423,
+            "name": "D:\\PH_N_2\\UMS-2\\logs\\winston\\success\\UMS2-success-2023-06-13-08.log",
+            "hash": "862d75379ff26ffcfe9ae7e3c1ca33102360075e54c9375051760e891775392f"
         }
     ],
     "hashType": "sha256"
