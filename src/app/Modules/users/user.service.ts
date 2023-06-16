@@ -1,25 +1,88 @@
+import mongoose from 'mongoose'
 import ApiError from '../../../Errors/ApiErrors'
 import config from '../../../configure'
+import { AcademicSemester } from '../academicSemester/academicSemester.model'
+import { IStudent } from '../student/student.interface'
 import { IUser } from './user.interface'
 import { User } from './user.modal'
-import { genarateUserId } from './user.utlis'
+import { genarateStudentId } from './user.utlis'
+import { Student } from '../student/student.model'
+// import { genarateFacultyId } from './user.utlis'
 
-const createUser = async (user: IUser): Promise<IUser | null> => {
+const createStudent = async (
+  student: IStudent,
+  user: IUser
+): Promise<IUser | null> => {
   // Incremantal Id
-  const id = await genarateUserId()
-  user.id = id
+
+  // const id = await genarateFacultyId()
+  // user.id = id
+
   //   Defualt Password
   if (!user.password) {
     user.password = config.D_USER_PASSWORD as string
   }
 
-  const createdUser = await User.create(user)
-  if (!createdUser) {
-    throw new ApiError(400, 'Failed to  create a new User')
+  // set Role
+  user.role = 'student'
+
+  const academicSemester = await AcademicSemester.findById(
+    student.academicSemester
+  )
+
+  // Genarate Student Id
+  let newUserAllData = null
+
+  const session = await mongoose.startSession()
+
+  try {
+    session.startTransaction()
+
+    const id = await genarateStudentId(academicSemester)
+
+    user.id = id
+    student.id = id
+
+    const newStudent = await Student.create([student], { session })
+    if (!newStudent.length) {
+      throw new ApiError(404, 'Failed to create Student')
+    }
+
+    // set student _id to user
+    user.student = newStudent[0]._id
+    const newUser = await User.create([user], { session })
+
+    if (!newUser.length) {
+      throw new ApiError(404, 'Failed to create User')
+    }
+
+    newUserAllData = newUser[0]
+
+    await session.commitTransaction()
+    await session.endSession()
+  } catch (error) {
+    await session.abortTransaction()
+    await session.endSession()
+    throw error
   }
-  return createdUser
+
+  if (newUserAllData) {
+    newUserAllData = await User.findOne({ id: newUserAllData.id }).populate({
+      path: 'student',
+      populate: [
+        {
+          path: 'academicSemester',
+        },
+        {
+          path: 'academicFaculty',
+        },
+      ],
+    })
+  }
+
+  return newUserAllData
 }
 
 export const UserService = {
-  createUser,
+  createStudent,
 }
