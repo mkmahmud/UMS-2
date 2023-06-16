@@ -17,7 +17,6 @@ export type IAcademicFacultyMonth =
 export type IAcademicFacultyTitle =
   | 'Faculty of business administration'
   | 'Faculty of Computer Science'
-  | 'Fall'
 export type IAcademicFacultyCode = '01' | '02' | '03'
 
 export type IAcademicFaculty = {
