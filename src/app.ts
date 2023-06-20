@@ -31,7 +31,7 @@ app.use('/api/v1', routes)
 // Global testing
 app.use(globalErrorHandler)
 
-// Handek not found
+// Handel not found
 app.use((req: Request, res: Response, next: NextFunction) => {
   res.status(StatusCodes.NOT_FOUND).json({
     success: false,

@@ -4,7 +4,6 @@ import { IGenericHandlerMessage } from '../../interfaces/error'
 import handelValiditionError from '../../Errors/handelValiditionError'
 import { ZodError } from 'zod'
 import ApiError from '../../Errors/ApiErrors'
-import { errorLogger } from '../../shared/logger'
 import handelZodError from '../../Errors/handelZodError'
 import handelCasrError from '../../Errors/handelCasrError'
 
@@ -13,7 +12,7 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res) => {
   configure.env === 'development'
     ? // eslint-disable-next-line no-console
       console.log('GlobalErrorHandler ~', error)
-    : errorLogger.error('GlobalErrorHandler ~', error)
+    : console.log('GlobalErrorHandler ~', error)
 
   let statusCode = 500
   let message = 'Something went wrong'
