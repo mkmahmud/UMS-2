@@ -2,7 +2,6 @@
 import mongoose = require('mongoose')
 import app from './app'
 import config from './configure/index'
-import { logger, errorLogger } from './shared/logger'
 import { Server } from 'http'
 
 process.on('uncaughtException', err => {
@@ -16,12 +15,12 @@ async function main() {
 
   try {
     await mongoose.connect(config.SERVER_URL as string)
-    logger.info('database connected')
+    console.log('database connected')
     server = app.listen(config.PORT, () => {
-      logger.info(`Example app listening on port ${config.PORT}`)
+      console.log(`Example app listening on port ${config.PORT}`)
     })
   } catch (err) {
-    errorLogger.error(err)
+    console.log(err)
   }
 
   process.on('unhandledRejection', err => {
@@ -29,7 +28,7 @@ async function main() {
     console.log('unhandel rejection is dected   So we are closing Our service')
     if (server) {
       server.close(() => {
-        errorLogger.error(err)
+        console.log(err)
         process.exit()
       })
     } else {
@@ -40,7 +39,7 @@ async function main() {
 
 main()
 process.on('SIGTERM', () => {
-  logger.info('SINGTERM is recived')
+  console.log('SINGTERM is recived')
   if (server) {
     server.close()
   }

@@ -1,15 +1,14 @@
+"use strict";
 // import { createLogger, format, transports } from 'winston'
 // import path from 'path'
 // const { combine, timestamp, label, printf } = format
 // import DailyRotateFile from 'winston-daily-rotate-file'
-
 // // My format
 // const myFormat = printf(({ level, message, label, timestamp }) => {
 //   const date = new Date(timestamp)
 //   const hour = date.getHours()
 //   const minute = date.getMinutes()
 //   const second = date.getSeconds()
-
 //   return `${date.toDateString()}/${hour}-${minute}-${second} : [${label}] ${level}: ${message}`
 // })
 // const logger = createLogger({
@@ -18,7 +17,6 @@
 //   defaultMeta: { service: 'user-service' },
 //   transports: [
 //     new transports.Console(),
-
 //     new DailyRotateFile({
 //       filename: path.join(
 //         // eslint-disable-next-line no-undef
@@ -35,14 +33,12 @@
 //     }),
 //   ],
 // })
-
 // const errorLogger = createLogger({
 //   level: 'error',
 //   format: combine(label({ label: 'UMS2' }), timestamp(), myFormat),
 //   defaultMeta: { service: 'user-service' },
 //   transports: [
 //     new transports.Console(),
-
 //     new DailyRotateFile({
 //       filename: path.join(
 //         // eslint-disable-next-line no-undef
@@ -59,9 +55,7 @@
 //     }),
 //   ],
 // })
-
 // // export { logger, errorLogger }
-
 // //
 // // If we're not in production then log to the `console` with the format:
 // // `${info.level}: ${info.message} JSON.stringify({ ...rest }) `
