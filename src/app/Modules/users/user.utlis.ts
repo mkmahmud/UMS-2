@@ -23,21 +23,19 @@ export const genarateStudentId = async (
   return incrementedID
 }
 
-const findLastFacultyUserID = async () => {
-  const lastFacultyID = await User.findOne(
-    { role: 'faculty' },
-    { id: 1, _id: 0 }
-  )
-    .sort({ createdAt: -1 })
+export const findLastFacultyId = async (): Promise<string | undefined> => {
+  const lastFaculty = await User.findOne({ role: 'faculty' }, { id: 1, _id: 0 })
+    .sort({
+      createdAt: -1,
+    })
     .lean()
 
-  return lastFacultyID?.id ? lastFacultyID.id.substring(2) : undefined
+  return lastFaculty?.id ? lastFaculty.id.substring(2) : undefined
 }
 
-export const genarateFacultyId = async (): Promise<string | undefined> => {
+export const generateFacultyId = async (): Promise<string> => {
   const currentId =
-    (await findLastFacultyUserID()) || (0).toString().padStart(5, '0')
-
+    (await findLastFacultyId()) || (0).toString().padStart(5, '0')
   let incrementedId = (parseInt(currentId) + 1).toString().padStart(5, '0')
   incrementedId = `F-${incrementedId}`
 
