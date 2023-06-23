@@ -48,3 +48,4 @@ export type IStudent = {
 }
 
 export type StudentModel = Model<IStudent, Record<string, unknown>>
+export type IStudentFillters = { searchTerm: string }

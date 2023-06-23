@@ -30,7 +30,7 @@ const createAcademicFaculty = catchAsync(
 
 const getAllFaculty = catchAsync(async (req: Request, res: Response) => {
   // eslint-disable-next-line no-undef
-  const filters = pick(req.query, filterAbleFilds) as IAcademicFacultyFilters
+  const filters = pick(req.query, filterAbleFilds)
   const paginationOptions = pick(req.query, paginationFields)
 
   const result = await AcademicFacultyService.getAllFaculty(
