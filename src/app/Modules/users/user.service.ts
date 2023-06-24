@@ -5,12 +5,17 @@ import { AcademicSemester } from '../academicSemester/academicSemester.model'
 import { IStudent } from '../student/student.interface'
 import { IUser } from './user.interface'
 import { User } from './user.modal'
-import { genarateStudentId, generateAdminId, generateFacultyId } from './user.utlis'
+import {
+  genarateStudentId,
+  generateAdminId,
+  generateFacultyId,
+} from './user.utlis'
 import { Student } from '../student/student.model'
 import { IFaculty } from '../faculty/faculty.interface'
 import { Faculty } from '../faculty/faculty.model'
 import { IAdmin } from '../admin/admin.interface'
 import { Admin } from '../admin/admin.model'
+import bcrypt from 'bcrypt'
 // import { genarateFacultyId } from './user.utlis'
 
 const createStudent = async (
@@ -26,6 +31,8 @@ const createStudent = async (
   if (!user.password) {
     user.password = config.D_USER_PASSWORD as string
   }
+
+  user.password = await bcrypt.hash(user.password, 10)
 
   // set Role
   user.role = 'student'
@@ -203,10 +210,8 @@ const createAdmin = async (
   return newUserAllData
 }
 
-
-
 export const UserService = {
   createStudent,
   createFaculty,
-  createAdmin
+  createAdmin,
 }
