@@ -5,10 +5,12 @@ import { AcademicSemester } from '../academicSemester/academicSemester.model'
 import { IStudent } from '../student/student.interface'
 import { IUser } from './user.interface'
 import { User } from './user.modal'
-import { genarateStudentId, generateFacultyId } from './user.utlis'
+import { genarateStudentId, generateAdminId, generateFacultyId } from './user.utlis'
 import { Student } from '../student/student.model'
 import { IFaculty } from '../faculty/faculty.interface'
 import { Faculty } from '../faculty/faculty.model'
+import { IAdmin } from '../admin/admin.interface'
+import { Admin } from '../admin/admin.model'
 // import { genarateFacultyId } from './user.utlis'
 
 const createStudent = async (
@@ -142,7 +144,69 @@ const createFaculty = async (
   return newUserAllData
 }
 
+// Create Admin
+
+// Create Faculty
+// Create Faculty
+
+const createAdmin = async (
+  admin: IAdmin,
+  user: IUser
+): Promise<IUser | null> => {
+  // default password
+  if (!user.password) {
+    user.password = config.DEFAULT_ADMIN_PASS as string
+  }
+
+  // set role
+  user.role = 'admin'
+
+  // generate faculty id
+  let newUserAllData = null
+  const session = await mongoose.startSession()
+  try {
+    session.startTransaction()
+
+    const id = await generateAdminId()
+    user.id = id
+    admin.id = id
+
+    const newFaculty = await Admin.create([admin], { session })
+
+    if (!newFaculty.length) {
+      throw new ApiError(404, 'Failed to create Admin ')
+    }
+
+    user.admin = newFaculty[0]._id
+
+    const newUser = await User.create([user], { session })
+
+    if (!newUser.length) {
+      throw new ApiError(404, 'Failed to create Admin')
+    }
+    newUserAllData = newUser[0]
+
+    await session.commitTransaction()
+    await session.endSession()
+  } catch (error) {
+    await session.abortTransaction()
+    await session.endSession()
+    throw error
+  }
+
+  if (newUserAllData) {
+    newUserAllData = await User.findOne({ id: newUserAllData.id }).populate({
+      path: 'admin',
+    })
+  }
+
+  return newUserAllData
+}
+
+
+
 export const UserService = {
   createStudent,
   createFaculty,
+  createAdmin
 }
