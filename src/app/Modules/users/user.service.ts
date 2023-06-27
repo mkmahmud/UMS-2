@@ -15,7 +15,7 @@ import { IFaculty } from '../faculty/faculty.interface'
 import { Faculty } from '../faculty/faculty.model'
 import { IAdmin } from '../admin/admin.interface'
 import { Admin } from '../admin/admin.model'
-import bcrypt from 'bcrypt'
+
 // import { genarateFacultyId } from './user.utlis'
 
 const createStudent = async (
@@ -32,7 +32,6 @@ const createStudent = async (
     user.password = config.D_USER_PASSWORD as string
   }
 
-  user.password = await bcrypt.hash(user.password, 10)
 
   // set Role
   user.role = 'student'

@@ -2,13 +2,14 @@ import express, { Application, NextFunction, Request, Response } from 'express'
 const app: Application = express()
 import cors from 'cors'
 import { StatusCodes } from 'http-status-codes'
-
+import cookieParser from 'cookie-parser'
 import globalErrorHandler from './app/middlewares/globalErrorHandler'
 import routes from './app/routes'
 
 // import ApiError from './Errors/ApiErrors'
 // Cors
 app.use(cors())
+app.use(cookieParser())
 
 // Parser
 app.use(express.json())

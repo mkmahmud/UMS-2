@@ -6,6 +6,7 @@ import { academicDepartmentRoutes } from '../Modules/academicDepartment/academic
 import { StudentRoutes } from '../Modules/student/student.route'
 import { FacultyRoutes } from '../Modules/faculty/faculty.route'
 import { AdminRoutes } from '../Modules/admin/admin.route'
+import { AuthRoutes } from '../Modules/auth/auth.route'
 
 const routes = express.Router()
 
@@ -39,6 +40,10 @@ const Routers = [
     path: '/admin',
     route: AdminRoutes,
   },
+  {
+    path:'/auth',
+    route: AuthRoutes
+  }
 ]
 
 Routers.forEach(route => routes.use(route.path, route.route))
