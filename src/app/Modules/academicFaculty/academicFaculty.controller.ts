@@ -29,6 +29,10 @@ const createAcademicFaculty = catchAsync(
 )
 
 const getAllFaculty = catchAsync(async (req: Request, res: Response) => {
+
+  console.log(req.headers.authorization)
+  console.log(req.user)
+
   // eslint-disable-next-line no-undef
   const filters = pick(req.query, filterAbleFilds)
   const paginationOptions = pick(req.query, paginationFields)

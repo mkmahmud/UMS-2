@@ -21,7 +21,7 @@ async (req: Request, res: Response, next: NextFunction) => {
 
  req.user = verifiedUser; // role , userid
 
- // role diye guard korar jnno
+//  role diye guard korar jnno
  if (requiredRoles.length && !requiredRoles.includes(verifiedUser.role)) {
    throw new ApiError(403, 'Forbidden');
  }

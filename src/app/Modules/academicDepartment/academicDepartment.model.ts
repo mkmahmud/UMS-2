@@ -27,4 +27,4 @@ const AcademicDepartmentSchema = new Schema<IAcademicDepartment>(
 export const academicDepartment = model<
   IAcademicDepartment,
   AcademicDepartmentModel
->('academicDepartment', AcademicDepartmentSchema)
+>('AcademicDepartment', AcademicDepartmentSchema)

@@ -8,3 +8,9 @@ export type IAuthResponse = {
     refreshTOcken: string,
     needsPasswordChange: boolean | undefined
 }
+
+export type IChangePassword = {
+    oldPassword: string
+    newPassword: string
+  }
+  

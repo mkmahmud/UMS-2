@@ -5,6 +5,7 @@ import ValidateRequest from '../../middlewares/validateRequest'
 import { AcademicFacultyValidation } from './academicFaculty.Validation'
 import { academicController } from './academicFaculty.controller'
 import { ENUM_USER_ROLE } from '../../../enums/user'
+import auth from '../../middlewares/auth'
 
 const router = express.Router()
 
